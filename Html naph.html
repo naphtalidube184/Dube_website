@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Naphtali T. Dube – Mining Engineer</title>
+<meta name="description" content="Naphtali T. Dube, mining engineer: slope stability, mine planning and mine valuation. Resume, publications, projects and mining calculators.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F3EF; --surface:#E5E8E1; --ink:#1D2630; --muted:#56616A; --rule:#C6CCC3;
+  --accent:#2C7562; --mark:#B57A12; --field:#FFFFFF;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#141920; --surface:#1C232B; --ink:#E3E7E1; --muted:#9AA5AD; --rule:#2F3943;
+    --accent:#5DB59E; --mark:#E2B04A; --field:#10151B; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141920; --surface:#1C232B; --ink:#E3E7E1; --muted:#9AA5AD; --rule:#2F3943;
+  --accent:#5DB59E; --mark:#E2B04A; --field:#10151B; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:17px;line-height:1.55;font-variation-settings:"wdth" 100;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+img,svg{max-width:100%}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--mark);outline-offset:2px}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--rule)}
+.nav-in{max-width:1080px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:24px;height:56px}
+.nav-name{font-weight:700;font-variation-settings:"wdth" 80;font-size:18px;color:var(--ink);text-decoration:none;white-space:nowrap}
+.nav-links{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none;margin-left:auto}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:15px;white-space:nowrap;padding:4px 0}
+.nav-links a:hover{color:var(--ink)}
+@media (max-width:640px){.nav-name{display:none}.nav-links{margin-left:0}}
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* hero */
+.hero{padding:56px 0 0}
+.hero h1{
+  margin:0;font-weight:800;font-variation-settings:"wdth" 70;
+  font-size:clamp(48px,11vw,124px);line-height:.92;letter-spacing:-.01em;
+}
+.hero p.lede{max-width:34em;font-size:clamp(18px,2.4vw,22px);color:var(--muted);margin:20px 0 0}
+.hero .where{margin-top:8px;color:var(--muted);font-size:15px}
+.pit{display:block;width:100%;height:auto;margin-top:32px}
+.pit .ground{fill:none;stroke:var(--ink);stroke-width:2}
+.pit .fill{fill:var(--surface)}
+.pit .note{font:500 13px "Archivo",sans-serif;fill:var(--muted)}
+.pit .leader{stroke:var(--muted);stroke-width:1;fill:none}
+.pit .slope{stroke:var(--mark);stroke-width:1.5;stroke-dasharray:6 5;fill:none}
+.pit .profile{stroke-dasharray:2400;stroke-dashoffset:2400;animation:draw 2.2s ease-out .2s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.pit .profile{animation:none;stroke-dashoffset:0}}
+
+/* sections */
+section{padding:72px 0 8px}
+h2{font-weight:800;font-variation-settings:"wdth" 75;font-size:clamp(34px,5vw,52px);line-height:1;margin:0 0 28px}
+h3{font-weight:700;font-size:20px;line-height:1.25;margin:0}
+.muted{color:var(--muted)}
+.prose{max-width:38em}
+.prose p{margin:0 0 14px}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+@media (max-width:760px){.two{grid-template-columns:1fr;gap:28px}}
+
+/* timeline */
+.tl{list-style:none;margin:0;padding:0;border-left:2px solid var(--rule)}
+.tl li{position:relative;padding:0 0 32px 24px}
+.tl li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;background:var(--bg);border:2px solid var(--accent);border-radius:50%}
+.tl li:first-child::before{background:var(--accent)}
+.tl .when{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.tl .org{color:var(--muted);margin:2px 0 8px}
+.tl ul{margin:0;padding-left:18px}
+.tl ul li{padding:0;margin:0 0 4px}
+.tl ul li::before{display:none}
+
+.skills dt{font-weight:700;margin-top:14px}
+.skills dd{margin:2px 0 0;color:var(--muted)}
+
+.edu{list-style:none;margin:0;padding:0}
+.edu li{padding:12px 0;border-top:1px solid var(--rule)}
+.edu li:last-child{border-bottom:1px solid var(--rule)}
+
+/* publications */
+.pubs{list-style:none;margin:0;padding:0;max-width:44em}
+.pubs li{padding:18px 0;border-top:1px solid var(--rule)}
+.pubs li:last-child{border-bottom:1px solid var(--rule)}
+.pubs a.t{color:var(--ink);text-decoration:none}.pubs a.t:hover{text-decoration:underline}
+.status{display:inline-block;font-size:13px;font-weight:600;padding:2px 8px;border-radius:3px;border:1px solid var(--mark);color:var(--mark);margin-bottom:6px}
+
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px}
+@media (max-width:760px){.projects{grid-template-columns:1fr}}
+.proj{padding:20px 0;border-top:1px solid var(--rule)}
+.proj p{margin:8px 0 0}
+.proj .tags{font-size:14px;color:var(--accent);margin-top:8px}
+
+/* tools */
+.tool{background:var(--surface);border-radius:6px;padding:24px;margin-bottom:32px}
+.tool-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:6px}
+.tool > p{margin:0 0 20px;max-width:40em}
+.grid-in{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px 18px}
+label{display:block;font-size:14px;color:var(--muted)}
+input,select{
+  display:block;width:100%;margin-top:4px;padding:9px 10px;font:inherit;font-size:16px;
+  font-variant-numeric:tabular-nums;color:var(--ink);background:var(--field);
+  border:1px solid var(--rule);border-radius:4px;
+}
+.seg{display:inline-flex;border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+.seg button{font:inherit;font-size:15px;padding:7px 14px;border:0;background:transparent;color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--bg)}
+.results{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-top:24px;padding-top:20px;border-top:1px solid var(--rule)}
+.res .v{font-weight:800;font-variation-settings:"wdth" 75;font-size:34px;line-height:1.1;font-variant-numeric:tabular-nums}
+.res .k{font-size:14px;color:var(--muted)}
+.res.main .v{color:var(--accent)}
+.sens{margin-top:24px}
+.sens h4{margin:0 0 10px;font-size:15px;font-weight:600}
+.bar-row{display:grid;grid-template-columns:72px 1fr 92px;gap:10px;align-items:center;font-size:14px;font-variant-numeric:tabular-nums;margin-bottom:6px}
+.bar{height:10px;background:var(--accent);border-radius:2px;opacity:.85}
+.bar-row.base .bar{background:var(--mark)}
+.formula{font-size:14px;color:var(--muted);margin-top:18px}
+.chart-box{overflow-x:auto;margin-top:20px}
+.chart-box svg{display:block;min-width:480px;width:100%}
+.chart-box text{font:12px "Archivo",sans-serif;fill:var(--muted)}
+
+footer{padding:72px 0 48px}
+.contact a{font-size:clamp(20px,3vw,26px);font-weight:600}
+.contact p{margin:6px 0}
+.small{font-size:14px;color:var(--muted);margin-top:40px}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="nav-in">
+    <a class="nav-name" href="#top">N. T. Dube</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#resume">Resume</a>
+      <a href="#publications">Publications</a>
+      <a href="#projects">Projects</a>
+      <a href="#tools">Tools</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero wrap" id="top">
+  <h1>Naphtali T.<br>Dube</h1>
+  <p class="lede">Mining engineer working on slope stability, mine planning and the economics that decide what gets mined.</p>
+  <p class="where">Safford, Arizona, with roots and ongoing work in Zimbabwe</p>
+
+  <svg class="pit" viewBox="0 0 1200 260" role="img" aria-label="Cross-section of an open pit with stepped benches">
+    <path class="fill" d="M0 40 L180 40 L220 40 L250 80 L290 80 L320 120 L360 120 L390 160 L430 160 L460 200 L740 200 L770 160 L810 160 L840 120 L880 120 L910 80 L950 80 L980 40 L1200 40 L1200 260 L0 260 Z"/>
+    <path class="ground profile" d="M0 40 L220 40 L250 80 L290 80 L320 120 L360 120 L390 160 L430 160 L460 200 L740 200 L770 160 L810 160 L840 120 L880 120 L910 80 L950 80 L980 40 L1200 40"/>
+    <line class="slope" x1="220" y1="40" x2="460" y2="200"/>
+    <path class="leader" d="M840 120 L840 108 L1010 108"/>
+    <text class="note" x="1016" y="112">Bench face</text>
+    <path class="leader" d="M860 120 L860 140 L1010 140"/>
+    <text class="note" x="1016" y="144">Catch bench</text>
+    <path class="leader" d="M300 104 L130 104"/>
+    <text class="note" x="20" y="108">Overall slope</text>
+    <text class="note" x="560" y="230" text-anchor="middle">Pit floor</text>
+  </svg>
+</header>
+
+<main>
+<section id="about" class="wrap">
+  <h2>About</h2>
+  <div class="two">
+    <div class="prose">
+      <p>I’m a Mining Engineer 1 at Freeport-McMoRan’s Safford Operations, an open-pit copper mine in Arizona. My day-to-day work is slope monitoring with radar and prisms, checking that pit designs were built as planned, and keeping the pit surface model up to date.</p>
+      <p>Before Freeport I spent two years at Bravura Zimbabwe on an underground platinum project on the Great Dyke, working across feasibility studies, environmental assessment, ore control and mine design.</p>
+      <p>I hold an M.S. in Mining Engineering from Missouri University of Science and Technology. My research uses machine learning for mining decisions, and I like to test every design against the numbers: cutoff grades, cash flow and NPV.</p>
+      <p>I’m open to geotechnical and mine planning consulting work, especially on projects in southern Africa.</p>
+    </div>
+    <dl class="skills">
+      <dt>Geomechanics</dt><dd>FLAC3D, Rocscience, slope radar and prism monitoring, TARPs</dd>
+      <dt>Mine planning</dt><dd>Deswik, Vulcan, Datamine, Surpac, Maptek PointStudio</dd>
+      <dt>Economics</dt><dd>Pit optimization, reserve estimates, DCF and NPV, sensitivity analysis</dd>
+      <dt>Data and AI</dt><dd>Python, C++, Power BI, Random Forest, XGBoost, ANN, PINNs</dd>
+      <dt>GIS</dt><dd>ArcGIS, QGIS</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="resume" class="wrap">
+  <h2>Resume</h2>
+  <p id="resume-dl" hidden style="margin:-12px 0 28px"><a id="resume-link" href="#">Download my resume (PDF)</a></p>
+  <div class="two">
+    <div>
+      <h3 style="margin-bottom:18px">Experience</h3>
+      <ol class="tl">
+        <li>
+          <div class="when">Sep 2026 – present</div>
+          <h3>Mining Engineer 1</h3>
+          <div class="org">Freeport-McMoRan, Safford Operations, Arizona</div>
+          <ul>
+            <li>Monitor pit slopes with radar and prisms, and act on alarms through the TARP.</li>
+            <li>Check built pit walls against design using lidar scans in Maptek PointStudio.</li>
+            <li>Update the pit surface model from survey points and scans.</li>
+            <li>Build a radar coverage planning tool; run field and stockpile inspections and write daily reports.</li>
+          </ul>
+        </li>
+        <li>
+          <div class="when">Jul 2026 – Sep 2026</div>
+          <h3>Geomechanical Engineering Intern</h3>
+          <div class="org">Freeport-McMoRan, Tucson, Arizona</div>
+          <ul>
+            <li>Built an Excel tool that back-analyzes radar slope data to test alarm thresholds and averaging windows.</li>
+          </ul>
+        </li>
+        <li>
+          <div class="when">Jan 2026 – May 2026</div>
+          <h3>Graduate Teaching Assistant</h3>
+          <div class="org">Missouri S&amp;T, Capstone Design and Technical Reporting</div>
+        </li>
+        <li>
+          <div class="when">Jan 2023 – Dec 2024</div>
+          <h3>Mining Engineer</h3>
+          <div class="org">Bravura Zimbabwe, underground platinum project, Great Dyke</div>
+          <ul>
+            <li>Worked on prospecting, feasibility studies and the environmental impact assessment.</li>
+            <li>Did pit design, pit optimization and trade-off studies comparing underground and open-pit mining.</li>
+            <li>Built cash flow, NPV and sensitivity models; did ore control and targeting.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+    <div>
+      <h3 style="margin-bottom:18px">Education</h3>
+      <ul class="edu">
+        <li><strong>M.S. Mining Engineering</strong><br><span class="muted">Missouri University of Science and Technology, 2026. GPA 4.0</span></li>
+        <li><strong>Graduate Certificate, Energy Economics and Global Sustainability</strong><br><span class="muted">Missouri University of Science and Technology</span></li>
+        <li><strong>B.Eng. Mining Engineering</strong><br><span class="muted">Midlands State University, Zimbabwe, 2024</span></li>
+        <li><strong>Certificate, Financial Modelling for Mining Companies</strong></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="publications" class="wrap">
+  <h2>Publications</h2>
+  <ol class="pubs" id="pubs-list">
+    <li>
+      <span class="status">Under review</span>
+      <h3>A hybrid AHP and machine learning framework for underground mining method selection: a southern African PGM case study</h3>
+      <p class="muted" style="margin:6px 0 0">Mining, Metallurgy &amp; Exploration</p>
+    </li>
+    <li>
+      <span class="status">In preparation</span>
+      <h3>AI, automation and employment in U.S. mining: case studies of Bagdad, Newmont, Nevada Gold Mines and Leer Mine</h3>
+    </li>
+  </ol>
+</section>
+
+<section id="projects" class="wrap">
+  <h2>Projects</h2>
+  <div class="projects" id="proj-list">
+    <article class="proj">
+      <h3>Radar back-analysis tool for slope alarms</h3>
+      <p>An Excel workbook that averages radar velocity data over windows from 30 minutes to 12 hours, then counts false alarms and warning time for each threshold. Results show as a heat map so the best alarm settings are easy to pick.</p>
+      <div class="tags">Slope monitoring, Excel automation</div>
+    </article>
+    <article class="proj">
+      <h3>SG 10116 chrome project, Lalapanzi, Zimbabwe</h3>
+      <p>Tailings storage facility and slime dam design for a chrome operation, with A3 drawings of the dam, plant process flow and 3D plant layout.</p>
+      <div class="tags">Tailings design, CAD</div>
+    </article>
+    <article class="proj">
+      <h3>West Shore Gold financial model</h3>
+      <p>A full Excel valuation of a 25-year heap leach gold operation: production schedule, operating and capital costs, tax, cash flow, NPV and sensitivity.</p>
+      <div class="tags">Mine valuation, DCF</div>
+    </article>
+    <article class="proj">
+      <h3>Radar coverage planning tool</h3>
+      <p>A tool for planning where slope radars should sit so the active pit walls stay covered as mining moves.</p>
+      <div class="tags">Slope monitoring, planning</div>
+    </article>
+  </div>
+</section>
+
+<section id="tools" class="wrap">
+  <h2>Tools</h2>
+  <p class="prose muted" style="margin:-8px 0 28px">Quick calculators for early-stage mine planning. Change any input and the results update.</p>
+  <ul class="pubs" id="more-tools" hidden style="margin-bottom:32px"></ul>
+
+  <!-- Cutoff grade -->
+  <div class="tool" id="cutoff">
+    <div class="tool-head">
+      <h3>Cutoff grade calculator</h3>
+      <div class="seg" role="group" aria-label="Commodity">
+        <button type="button" data-c="cu" aria-pressed="true">Copper</button>
+        <button type="button" data-c="au" aria-pressed="false">Gold</button>
+        <button type="button" data-c="pt" aria-pressed="false">Platinum</button>
+      </div>
+    </div>
+    <p class="muted">Finds the lowest grade that pays for itself. Breakeven cutoff covers mining, processing and overhead. Marginal cutoff is for rock that’s already being mined and only has to pay for processing and overhead.</p>
+    <div class="grid-in">
+      <label>Metal price (<span data-u="price">$/lb</span>)<input id="c-price" type="number" inputmode="decimal" step="any"></label>
+      <label>Selling and refining cost (<span data-u="price2">$/lb</span>)<input id="c-sell" type="number" inputmode="decimal" step="any"></label>
+      <label>Process recovery (%)<input id="c-rec" type="number" inputmode="decimal" step="any"></label>
+      <label>Payable metal (%)<input id="c-pay" type="number" inputmode="decimal" step="any"></label>
+      <label>Mining cost ($/t ore)<input id="c-mine" type="number" inputmode="decimal" step="any"></label>
+      <label>Processing cost ($/t)<input id="c-proc" type="number" inputmode="decimal" step="any"></label>
+      <label>G&amp;A cost ($/t)<input id="c-ga" type="number" inputmode="decimal" step="any"></label>
+      <label>Test a block grade (<span data-u="grade">% Cu</span>)<input id="c-test" type="number" inputmode="decimal" step="any"></label>
+    </div>
+    <div class="results" aria-live="polite">
+      <div class="res main"><div class="v" id="r-be">–</div><div class="k">Breakeven cutoff</div></div>
+      <div class="res"><div class="v" id="r-mg">–</div><div class="k">Marginal cutoff</div></div>
+      <div class="res"><div class="v" id="r-nsr">–</div><div class="k">Net value per tonne at test grade</div></div>
+      <div class="res"><div class="v" id="r-margin">–</div><div class="k" id="r-margin-k">Profit per tonne at test grade</div></div>
+    </div>
+    <div class="sens">
+      <h4>Breakeven cutoff if the metal price changes</h4>
+      <div id="sens-rows"></div>
+    </div>
+    <p class="formula">Breakeven cutoff = (mining + processing + G&amp;A) ÷ [(price − selling cost) × recovery × payable × unit factor]. Unit factor is 22.046 lb per tonne per 1% for copper, and 1 ÷ 31.1035 oz per gram for gold and platinum. Costs are per metric tonne.</p>
+  </div>
+
+  <!-- NPV -->
+  <div class="tool" id="npv">
+    <div class="tool-head"><h3>Project NPV and IRR</h3></div>
+    <p class="muted">A flat-cash-flow model for a first look at a project. Depreciation is straight-line over the mine life, and losses aren’t taxed.</p>
+    <div class="grid-in">
+      <label>Initial capital ($M)<input id="n-capex" type="number" inputmode="decimal" step="any" value="250"></label>
+      <label>Yearly revenue ($M)<input id="n-rev" type="number" inputmode="decimal" step="any" value="180"></label>
+      <label>Yearly operating cost ($M)<input id="n-opex" type="number" inputmode="decimal" step="any" value="110"></label>
+      <label>Mine life (years)<input id="n-life" type="number" inputmode="numeric" step="1" min="1" max="60" value="12"></label>
+      <label>Discount rate (%)<input id="n-rate" type="number" inputmode="decimal" step="any" value="8"></label>
+      <label>Tax rate (%)<input id="n-tax" type="number" inputmode="decimal" step="any" value="25"></label>
+    </div>
+    <div class="results" aria-live="polite">
+      <div class="res main"><div class="v" id="n-npv">–</div><div class="k">NPV</div></div>
+      <div class="res"><div class="v" id="n-irr">–</div><div class="k">IRR</div></div>
+      <div class="res"><div class="v" id="n-pb">–</div><div class="k">Discounted payback</div></div>
+      <div class="res"><div class="v" id="n-cf">–</div><div class="k">Yearly after-tax cash flow</div></div>
+    </div>
+    <div class="chart-box"><svg id="n-chart" viewBox="0 0 640 220" role="img" aria-label="Cumulative discounted cash flow by year"></svg></div>
+  </div>
+
+  <!-- Stripping ratio -->
+  <div class="tool" id="strip">
+    <div class="tool-head"><h3>Stripping ratio check</h3></div>
+    <p class="muted">Compares the planned stripping ratio with the most waste one tonne of ore can pay to remove. If the planned ratio is higher, that part of the pit loses money.</p>
+    <div class="grid-in">
+      <label>Ore tonnes (Mt)<input id="s-ore" type="number" inputmode="decimal" step="any" value="40"></label>
+      <label>Waste tonnes (Mt)<input id="s-waste" type="number" inputmode="decimal" step="any" value="120"></label>
+      <label>Recoverable value per tonne ore ($/t)<input id="s-val" type="number" inputmode="decimal" step="any" value="32"></label>
+      <label>Ore mining cost ($/t)<input id="s-om" type="number" inputmode="decimal" step="any" value="2.5"></label>
+      <label>Processing and G&amp;A ($/t ore)<input id="s-proc" type="number" inputmode="decimal" step="any" value="9.5"></label>
+      <label>Waste mining cost ($/t)<input id="s-wm" type="number" inputmode="decimal" step="any" value="2.2"></label>
+    </div>
+    <div class="results" aria-live="polite">
+      <div class="res main"><div class="v" id="s-sr">–</div><div class="k">Planned stripping ratio (waste : ore)</div></div>
+      <div class="res"><div class="v" id="s-be">–</div><div class="k">Breakeven stripping ratio</div></div>
+      <div class="res"><div class="v" id="s-profit">–</div><div class="k" id="s-profit-k">Profit per tonne ore</div></div>
+      <div class="res"><div class="v" id="s-total">–</div><div class="k">Total undiscounted profit</div></div>
+    </div>
+    <p class="formula">Breakeven stripping ratio = (value per tonne ore − ore mining − processing and G&amp;A) ÷ waste mining cost.</p>
+  </div>
+
+  <!-- Planar failure -->
+  <div class="tool" id="fos">
+    <div class="tool-head"><h3>Planar sliding factor of safety</h3></div>
+    <p class="muted">Checks a single bench or slope for sliding on one joint or fault plane, using the Hoek and Bray limit equilibrium method. Assumes a flat crest and no tension crack. Water is set with a pore pressure ratio.</p>
+    <div class="grid-in">
+      <label>Slope height (m)<input id="f-h" type="number" inputmode="decimal" step="any" value="15"></label>
+      <label>Face angle (°)<input id="f-face" type="number" inputmode="decimal" step="any" value="70"></label>
+      <label>Plane dip (°)<input id="f-plane" type="number" inputmode="decimal" step="any" value="40"></label>
+      <label>Rock unit weight (kN/m³)<input id="f-g" type="number" inputmode="decimal" step="any" value="26"></label>
+      <label>Cohesion on plane (kPa)<input id="f-c" type="number" inputmode="decimal" step="any" value="25"></label>
+      <label>Friction angle on plane (°)<input id="f-phi" type="number" inputmode="decimal" step="any" value="35"></label>
+      <label>Pore pressure ratio (0 to 0.5)<input id="f-ru" type="number" inputmode="decimal" step="any" value="0"></label>
+    </div>
+    <div class="results" aria-live="polite">
+      <div class="res main"><div class="v" id="f-fos">–</div><div class="k" id="f-fos-k">Factor of safety</div></div>
+      <div class="res"><div class="v" id="f-w">–</div><div class="k">Sliding block weight (kN per m of wall)</div></div>
+      <div class="res"><div class="v" id="f-a">–</div><div class="k">Sliding plane length (m)</div></div>
+      <div class="res"><div class="v" id="f-kin">–</div><div class="k">Can the block slide?</div></div>
+    </div>
+    <p class="formula">FoS = [c·A + (W cos ψp − U) tan φ] ÷ (W sin ψp), with W = ½ γ H² (cot ψp − cot ψf), A = H ÷ sin ψp and U = ru · W cos ψp. Typical bench design targets FoS ≥ 1.1 to 1.3, depending on the operation’s acceptance criteria.</p>
+  </div>
+</section>
+</main>
+
+<footer id="contact" class="wrap">
+  <h2>Contact</h2>
+  <div class="contact" id="contact-links">
+    <p class="muted">Add your email and LinkedIn in the site editor.</p>
+  </div>
+  <p class="small">Calculator results are for early screening only and aren’t a substitute for a full mine plan.</p>
+</footer>
+
+<script>
+(function(){
+  const $ = id => document.getElementById(id);
+  const fmt = (n,d) => isFinite(n) ? n.toLocaleString(undefined,{minimumFractionDigits:d,maximumFractionDigits:d}) : "–";
+
+  /* ---------- Cutoff grade ---------- */
+  const presets = {
+    cu:{grade:"% Cu", price:"$/lb", factor:22.0462, gd:3, v:{price:4.5, sell:0.40, rec:85, pay:96, mine:2.5, proc:8, ga:1.5, test:0.40}},
+    au:{grade:"g/t Au", price:"$/oz", factor:1/31.1035, gd:2, v:{price:3000, sell:5, rec:90, pay:99.5, mine:3, proc:18, ga:3, test:1.2}},
+    pt:{grade:"g/t Pt", price:"$/oz", factor:1/31.1035, gd:2, v:{price:1000, sell:30, rec:82, pay:85, mine:45, proc:25, ga:10, test:4}}
+  };
+  let cur = "cu";
+  const keys = ["price","sell","rec","pay","mine","proc","ga","test"];
+
+  function load(c){
+    cur = c; const p = presets[c];
+    keys.forEach(k => $("c-"+k).value = p.v[k]);
+    document.querySelectorAll('[data-u="price"],[data-u="price2"]').forEach(e => e.textContent = p.price);
+    document.querySelector('[data-u="grade"]').textContent = p.grade;
+    document.querySelectorAll("#cutoff .seg button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c===c ? "true":"false"));
+    calcCutoff();
+  }
+  function val(id){ const n = parseFloat($(id).value); return isFinite(n) ? n : NaN; }
+
+  function cutoffAt(price, v, p){
+    const unitValue = (price - v.sell) * (v.rec/100) * (v.pay/100) * p.factor; // $ per tonne per grade unit
+    return {unitValue, be:(v.mine+v.proc+v.ga)/unitValue, mg:(v.proc+v.ga)/unitValue};
+  }
+
+  function calcCutoff(){
+    const p = presets[cur]; const v = {};
+    keys.forEach(k => v[k] = val("c-"+k));
+    const r = cutoffAt(v.price, v, p);
+    const ok = r.unitValue > 0 && keys.every(k => isFinite(v[k]));
+    const u = " " + p.grade;
+    $("r-be").textContent = ok ? fmt(r.be,p.gd)+u : "–";
+    $("r-mg").textContent = ok ? fmt(r.mg,p.gd)+u : "–";
+    const nsr = v.test * r.unitValue;
+    const margin = nsr - (v.mine+v.proc+v.ga);
+    $("r-nsr").textContent = ok ? "$"+fmt(nsr,2) : "–";
+    $("r-margin").textContent = ok ? (margin<0?"−$":"$")+fmt(Math.abs(margin),2) : "–";
+    $("r-margin-k").textContent = !ok ? "Profit per tonne at test grade" :
+      v.test >= r.be ? "Profit per tonne at test grade: send to mill" :
+      v.test >= r.mg ? "Loss per tonne incl. mining: mill it only if it must be mined anyway" :
+      "Loss per tonne at test grade: send to waste";
+    if(!ok && r.unitValue <= 0){ $("r-be").textContent = "Price too low"; }
+
+    const rows = $("sens-rows"); rows.innerHTML = "";
+    if(!ok) return;
+    const steps = [-20,-10,0,10,20];
+    const vals = steps.map(s => cutoffAt(v.price*(1+s/100), v, p).be);
+    const max = Math.max(...vals.filter(x => x>0 && isFinite(x)));
+    steps.forEach((s,i) => {
+      const be = vals[i];
+      const row = document.createElement("div");
+      row.className = "bar-row" + (s===0 ? " base":"");
+      const w = (be>0 && isFinite(be)) ? (be/max*100) : 0;
+      row.innerHTML = '<span>'+(s===0?"Base":(s>0?"+":"−")+Math.abs(s)+"%")+'</span><div><div class="bar" style="width:'+w+'%"></div></div><span>'+((be>0&&isFinite(be))?fmt(be,p.gd)+u:"n/a")+'</span>';
+      rows.appendChild(row);
+    });
+  }
+
+  document.querySelectorAll("#cutoff .seg button").forEach(b => b.addEventListener("click", () => load(b.dataset.c)));
+  keys.forEach(k => $("c-"+k).addEventListener("input", calcCutoff));
+  load("cu");
+
+  /* ---------- NPV ---------- */
+  const nk = ["capex","rev","opex","life","rate","tax"];
+  function flows(v){
+    const life = Math.max(1, Math.min(60, Math.round(v.life)));
+    const dep = v.capex / life;
+    const taxable = v.rev - v.opex - dep;
+    const tax = taxable > 0 ? taxable * v.tax/100 : 0;
+    const cf = v.rev - v.opex - tax;
+    const arr = [-v.capex]; for(let i=1;i<=life;i++) arr.push(cf);
+    return {arr, cf};
+  }
+  const npvOf = (arr, r) => arr.reduce((s,c,t) => s + c/Math.pow(1+r,t), 0);
+  function irrOf(arr){
+    let lo=-0.99, hi=10;
+    if(npvOf(arr,lo)*npvOf(arr,hi) > 0) return NaN;
+    for(let i=0;i<200;i++){ const m=(lo+hi)/2; (npvOf(arr,lo)*npvOf(arr,m) <= 0) ? hi=m : lo=m; }
+    return (lo+hi)/2;
+  }
+  function calcNPV(){
+    const v = {}; nk.forEach(k => v[k] = parseFloat($("n-"+k).value));
+    const svg = $("n-chart");
+    if(!nk.every(k => isFinite(v[k])) || v.life < 1){ ["n-npv","n-irr","n-pb","n-cf"].forEach(id => $(id).textContent="–"); svg.innerHTML=""; return; }
+    const {arr, cf} = flows(v); const r = v.rate/100;
+    const npv = npvOf(arr, r), irr = irrOf(arr);
+    let cum = 0, pb = NaN; const cums = [];
+    arr.forEach((c,t) => { const prev = cum; cum += c/Math.pow(1+r,t); cums.push(cum);
+      if(isNaN(pb) && t>0 && prev<0 && cum>=0){ pb = t-1 + (-prev)/(cum-prev); } });
+    $("n-npv").textContent = (npv<0?"−$":"$") + fmt(Math.abs(npv),1) + "M";
+    $("n-irr").textContent = isFinite(irr) ? fmt(irr*100,1)+"%" : "None";
+    $("n-pb").textContent = isFinite(pb) ? fmt(pb,1)+" yrs" : "Not reached";
+    $("n-cf").textContent = (cf<0?"−$":"$") + fmt(Math.abs(cf),1) + "M";
+
+    // chart
+    const W=640,H=220,L=48,R=12,T=14,B=30;
+    const mn=Math.min(0,...cums), mx=Math.max(0,...cums), span=(mx-mn)||1;
+    const x = i => L + i*(W-L-R)/Math.max(1,cums.length-1);
+    const y = val => T + (mx-val)/span*(H-T-B);
+    const css = getComputedStyle(document.documentElement);
+    const accent=css.getPropertyValue("--accent").trim(), rule=css.getPropertyValue("--rule").trim(), mark=css.getPropertyValue("--mark").trim();
+    let s = '<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(0)+'" y2="'+y(0)+'" stroke="'+rule+'" stroke-width="1"/>';
+    s += '<text x="'+(L-6)+'" y="'+(y(mx)+4)+'" text-anchor="end">'+fmt(mx,0)+'</text>';
+    s += '<text x="'+(L-6)+'" y="'+(y(mn)+4)+'" text-anchor="end">'+fmt(mn,0)+'</text>';
+    s += '<text x="'+(L-6)+'" y="'+(y(0)+4)+'" text-anchor="end">0</text>';
+    const pts = cums.map((c,i) => x(i)+","+y(c)).join(" ");
+    s += '<polyline points="'+pts+'" fill="none" stroke="'+accent+'" stroke-width="2.5"/>';
+    cums.forEach((c,i) => { s += '<circle cx="'+x(i)+'" cy="'+y(c)+'" r="3" fill="'+(c<0?mark:accent)+'"/>'; });
+    const stepLbl = Math.ceil(cums.length/12);
+    cums.forEach((c,i) => { if(i%stepLbl===0 || i===cums.length-1) s += '<text x="'+x(i)+'" y="'+(H-10)+'" text-anchor="middle">'+i+'</text>'; });
+    s += '<text x="'+(W-R)+'" y="'+(T+2)+'" text-anchor="end">Cumulative discounted cash flow, $M</text>';
+    svg.innerHTML = s;
+  }
+  nk.forEach(k => $("n-"+k).addEventListener("input", calcNPV));
+  calcNPV();
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", calcNPV);
+
+  /* ---------- Stripping ratio ---------- */
+  const sk = ["ore","waste","val","om","proc","wm"];
+  function calcStrip(){
+    const v = {}; sk.forEach(k => v[k] = parseFloat($("s-"+k).value));
+    const ids = ["s-sr","s-be","s-profit","s-total"];
+    if(!sk.every(k => isFinite(v[k])) || v.ore <= 0 || v.wm <= 0){ ids.forEach(id => $(id).textContent = "–"); return; }
+    const sr = v.waste / v.ore;
+    const be = (v.val - v.om - v.proc) / v.wm;
+    const profit = v.val - v.om - v.proc - sr * v.wm;
+    $("s-sr").textContent = fmt(sr,2) + " : 1";
+    $("s-be").textContent = be > 0 ? fmt(be,2) + " : 1" : "Ore doesn’t pay";
+    $("s-profit").textContent = (profit<0?"−$":"$") + fmt(Math.abs(profit),2);
+    $("s-profit-k").textContent = profit >= 0 ? "Profit per tonne ore" : "Loss per tonne ore";
+    const tot = profit * v.ore;
+    $("s-total").textContent = (tot<0?"−$":"$") + fmt(Math.abs(tot),0) + "M";
+  }
+  sk.forEach(k => $("s-"+k).addEventListener("input", calcStrip));
+  calcStrip();
+
+  /* ---------- Planar failure FoS ---------- */
+  const fk = ["h","face","plane","g","c","phi","ru"];
+  const rad = d => d * Math.PI / 180;
+  function calcFoS(){
+    const v = {}; fk.forEach(k => v[k] = parseFloat($("f-"+k).value));
+    const ids = ["f-fos","f-w","f-a","f-kin"];
+    if(!fk.every(k => isFinite(v[k])) || v.h <= 0 || v.plane <= 0 || v.face >= 90 || v.face <= 0){ ids.forEach(id => $(id).textContent = "–"); $("f-fos-k").textContent = "Factor of safety"; return; }
+    if(v.plane >= v.face){
+      ids.forEach(id => $(id).textContent = "–");
+      $("f-kin").textContent = "No";
+      $("f-fos-k").textContent = "Plane must dip less steeply than the face to daylight";
+      return;
+    }
+    const pp = rad(v.plane), pf = rad(v.face);
+    const W = 0.5 * v.g * v.h * v.h * (1/Math.tan(pp) - 1/Math.tan(pf));
+    const A = v.h / Math.sin(pp);
+    const U = v.ru * W * Math.cos(pp);
+    const N = Math.max(0, W * Math.cos(pp) - U);
+    const fos = (v.c * A + N * Math.tan(rad(v.phi))) / (W * Math.sin(pp));
+    $("f-fos").textContent = fmt(fos,2);
+    $("f-fos-k").textContent = fos < 1 ? "Factor of safety: expect sliding" : fos < 1.2 ? "Factor of safety: marginal" : "Factor of safety: stable for these inputs";
+    $("f-w").textContent = fmt(W,0);
+    $("f-a").textContent = fmt(A,1);
+    $("f-kin").textContent = v.plane > v.phi ? "Yes" : "Unlikely, friction alone holds it when dry";
+  }
+  fk.forEach(k => $("f-"+k).addEventListener("input", calcFoS));
+  calcFoS();
+})();
+</script>
+<script>
+/* Loads editable content from /content/*.json (edited in Pages CMS).
+   If a file is missing or the page is opened offline, the built-in content stays. */
+(function(){
+  const esc = t => String(t ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const get = f => fetch("content/"+f, {cache:"no-cache"}).then(r => r.ok ? r.json() : null).catch(() => null);
+  const asList = d => Array.isArray(d) ? d : (d && Array.isArray(d.items) ? d.items : null);
+  const safeUrl = u => /^(https?:|mailto:|\/|media\/|tools\/)/i.test(u||"") ? u : "";
+
+  get("site.json").then(d => {
+    if(!d) return;
+    const box = document.getElementById("contact-links"); let h = "";
+    if(d.email) h += '<p><a href="mailto:'+esc(d.email)+'">'+esc(d.email)+'</a></p>';
+    if(safeUrl(d.linkedin)) h += '<p><a href="'+esc(d.linkedin)+'" rel="noopener">LinkedIn</a></p>';
+    if(safeUrl(d.scholar)) h += '<p><a href="'+esc(d.scholar)+'" rel="noopener">Google Scholar</a></p>';
+    if(d.phone) h += '<p class="muted">'+esc(d.phone)+'</p>';
+    if(h) box.innerHTML = h;
+    const pdf = safeUrl(d.resume_pdf);
+    if(pdf){ document.getElementById("resume-link").href = pdf; document.getElementById("resume-dl").hidden = false; }
+  });
+
+  get("publications.json").then(d => {
+    const list = asList(d); if(!list || !list.length) return;
+    document.getElementById("pubs-list").innerHTML = list.map(p => {
+      const link = safeUrl(p.link);
+      const title = link ? '<a class="t" href="'+esc(link)+'" rel="noopener">'+esc(p.title)+'</a>' : esc(p.title);
+      const meta = [p.authors, p.venue, p.year].filter(Boolean).map(esc).join(", ");
+      return '<li>'+(p.status?'<span class="status">'+esc(p.status)+'</span>':'')+'<h3>'+title+'</h3>'+(meta?'<p class="muted" style="margin:6px 0 0">'+meta+'</p>':'')+'</li>';
+    }).join("");
+  });
+
+  get("projects.json").then(d => {
+    const list = asList(d); if(!list || !list.length) return;
+    document.getElementById("proj-list").innerHTML = list.map(p => {
+      const link = safeUrl(p.link);
+      return '<article class="proj"><h3>'+esc(p.title)+'</h3><p>'+esc(p.summary)+'</p>'+(p.tags?'<div class="tags">'+esc(p.tags)+'</div>':'')+(link?'<p><a href="'+esc(link)+'">See more</a></p>':'')+'</article>';
+    }).join("");
+  });
+
+  get("tools.json").then(d => {
+    const list = asList(d); if(!list || !list.length) return;
+    const ul = document.getElementById("more-tools");
+    ul.innerHTML = list.map(t => {
+      const link = safeUrl(t.link);
+      return '<li><h3>'+(link?'<a class="t" href="'+esc(link)+'">'+esc(t.title)+'</a>':esc(t.title))+'</h3>'+(t.summary?'<p class="muted" style="margin:6px 0 0">'+esc(t.summary)+'</p>':'')+'</li>';
+    }).join("");
+    ul.hidden = false;
+  });
+})();
+</script>
+</body>
+</html>
