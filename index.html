@@ -1,61 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Stripping ratio check – N. T. Dube</title>
-<meta name="description" content="Compare a planned stripping ratio with the breakeven stripping ratio.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css">
-<script src="/assets/common.js"></script>
-</head>
-<body>
-<nav class="nav" aria-label="Main"><div class="nav-in">
-  <a class="nav-name" href="/">N. T. Dube</a>
-  <div class="nav-links"><a href="/#about">About</a><a href="/#publications">Publications</a><a href="/#projects">Projects</a><a href="/#tools">All tools</a><a href="/#contact">Contact</a></div>
-</div></nav>
-<main class="wrap">
-<a class="back" href="/#tools">Back to all tools</a>
-<h1 class="page">Stripping ratio check</h1>
-<p class="prose muted">Compares the planned stripping ratio with the most waste one tonne of ore can pay to remove. If the planned ratio is higher, that part of the pit loses money.</p>
-<div class="tool">
-  <div class="grid-in">
-    <label>Ore tonnes (Mt)<input id="s-ore" type="number" inputmode="decimal" step="any" value="40"></label>
-    <label>Waste tonnes (Mt)<input id="s-waste" type="number" inputmode="decimal" step="any" value="120"></label>
-    <label>Recoverable value per tonne ore ($/t)<input id="s-val" type="number" inputmode="decimal" step="any" value="32"></label>
-    <label>Ore mining cost ($/t)<input id="s-om" type="number" inputmode="decimal" step="any" value="2.5"></label>
-    <label>Processing and G&amp;A ($/t ore)<input id="s-proc" type="number" inputmode="decimal" step="any" value="9.5"></label>
-    <label>Waste mining cost ($/t)<input id="s-wm" type="number" inputmode="decimal" step="any" value="2.2"></label>
-  </div>
-  <div class="results" aria-live="polite">
-    <div class="res main"><div class="v" id="s-sr">–</div><div class="k">Planned stripping ratio (waste : ore)</div></div>
-    <div class="res"><div class="v" id="s-be">–</div><div class="k">Breakeven stripping ratio</div></div>
-    <div class="res"><div class="v" id="s-profit">–</div><div class="k" id="s-profit-k">Profit per tonne ore</div></div>
-    <div class="res"><div class="v" id="s-total">–</div><div class="k">Total undiscounted profit</div></div>
-  </div>
-  <p class="formula">Breakeven stripping ratio = (value per tonne ore − ore mining − processing and G&amp;A) ÷ waste mining cost.</p>
-</div>
-<p class="small">Results are for early screening only and aren’t a substitute for detailed design or a full mine plan.</p>
-</main>
-<footer class="wrap" style="padding-top:24px"></footer>
-<script>
-(function(){
-  const $ = id => document.getElementById(id); const sk = ["ore","waste","val","om","proc","wm"];
-  function calc(){
-    const v = {}; sk.forEach(k => v[k] = parseFloat($("s-"+k).value)); const ids = ["s-sr","s-be","s-profit","s-total"];
-    if(!sk.every(k => isFinite(v[k])) || v.ore <= 0 || v.wm <= 0){ ids.forEach(id => $(id).textContent = "–"); return; }
-    const sr = v.waste/v.ore, be = (v.val - v.om - v.proc)/v.wm, profit = v.val - v.om - v.proc - sr*v.wm;
-    $("s-sr").textContent = fmt(sr,2)+" : 1";
-    $("s-be").textContent = be > 0 ? fmt(be,2)+" : 1" : "Ore doesn’t pay";
-    $("s-profit").textContent = money(profit,2);
-    $("s-profit-k").textContent = profit >= 0 ? "Profit per tonne ore" : "Loss per tonne ore";
-    $("s-total").textContent = money(profit*v.ore,0,"M");
-  }
-  sk.forEach(k => $("s-"+k).addEventListener("input", calc)); calc();
-})();
-</script>
-</body>
-</html>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Naphtali T. Dube — Mining Engineer and researcher in mine geotechnics, rock mechanics, machine learning and sustainable mining."><title>Naphtali T. Dube | Mining Engineer & Researcher</title><link rel="stylesheet" href="styles.css"></head>
+<body><header><a class="brand" href="#">NAPHTALI T. DUBE</a><button id="menu" aria-label="Toggle menu">☰</button><nav id="nav"><a href="#about">About</a><a href="#research">Research</a><a href="#projects">Projects</a><a href="#tools">Calculators</a><a href="#endeavor">Professional Endeavor</a><a href="#contact">Contact</a></nav></header>
+<main><section class="hero"><div class="wrap"><p class="eyebrow">MINING ENGINEERING · RESEARCH · TECHNOLOGY</p><h1>Engineering safer,<br><em>smarter</em> mining systems.</h1><p class="lead">I am Naphtali T. Dube, a mining engineer with interests in rock mechanics, mine geotechnics, machine learning and sustainable mining technology.</p><a class="button" href="#research">Explore my research ↓</a><div class="tags"><span>Rock Mechanics</span><span>Machine Learning</span><span>Mining Systems</span></div></div></section>
+<section id="about" class="section"><div class="wrap columns"><div><p class="eyebrow dark">ABOUT</p><h2>Mining engineering grounded in practice, driven by research.</h2></div><div><p>I hold a Bachelor of Engineering in Mining Engineering from Midlands State University and a Master of Science in Mining Engineering from Missouri University of Science and Technology, where I completed my degree with a 4.00/4.00 GPA.</p><p>My work and interests connect practical mine engineering with data-informed approaches to ground behaviour, operational risk and mine planning.</p><div class="facts"><p><b>M.S. Mining Engineering</b><br>Missouri University of Science and Technology · 2026</p><p><b>B.Eng. (Hons) Mining Engineering</b><br>Midlands State University · 2024</p></div></div></div></section>
+<section id="research" class="section pale"><div class="wrap"><p class="eyebrow dark">RESEARCH AGENDA</p><h2>Questions worth solving in mining and geomechanics.</h2><div class="cards"><article><small>01 · GEOMECHANICS</small><h3>Rock Mechanics & Slope Stability</h3><p>Rock-mass response, structural controls, blast-induced disturbance and open-pit slope deformation.</p></article><article><small>02 · DATA SCIENCE</small><h3>Machine Learning in Mining</h3><p>Interpretable predictive methods connecting operational data with measurable engineering outcomes.</p></article><article><small>03 · TECHNOLOGY</small><h3>Digital & Sustainable Mining</h3><p>Automation, remote monitoring and data-informed approaches supporting safer, more efficient mining.</p></article></div></div></section>
+<section class="section dark"><div class="wrap columns"><div><p class="eyebrow">DEVELOPING RESEARCH DIRECTION</p><h2>Cumulative blast damage.<br><em>Predictive slope response.</em></h2><p>A proposed research direction is to develop an integrated machine-learning and geomechanical framework for assessing cumulative blast-induced damage and predicting open-pit rock-slope response.</p></div><div class="panel"><h3>PROPOSED WORKFLOW</h3><p><b>01</b> Blast and vibration records <small>Blast design, PPV, frequency and timing</small></p><p><b>02</b> Damage characterisation <small>LiDAR observations and laboratory properties</small></p><p><b>03</b> Slope response monitoring <small>Radar displacement and velocity histories</small></p><p><b>04</b> Integrated prediction <small>Machine learning and calibrated geomechanics</small></p><small>Research concept under development; scope and methods remain subject to academic supervision and data availability.</small></div></div></section>
+<section id="projects" class="section"><div class="wrap"><p class="eyebrow dark">TECHNICAL WORK</p><h2>Engineering interests in action.</h2><div class="project"><small>GEOTECHNICAL MONITORING</small><h3>Slope displacement and inverse-velocity analysis</h3><p>Time-series processing, alarm-threshold evaluation and interpretation of slope-monitoring trends.</p></div><div class="project"><small>BLASTING & ROCK MECHANICS</small><h3>Blast disturbance and rock-slope performance</h3><p>Investigating how blast design, vibration exposure and geological conditions relate to rock-mass response.</p></div><div class="project"><small>DATA SCIENCE</small><h3>Machine-learning applications for mining</h3><p>Predictive modelling, model validation and explainability for engineering decision support.</p></div><p class="note">Additional public project summaries, reports and demonstrations can be added as they are approved for release.</p></div></section>
+<section id="tools" class="section pale"><div class="wrap"><p class="eyebrow dark">ENGINEERING TOOLS</p><h2>Mining calculators & decision support.</h2><p>Preliminary screening tools. Review assumptions and validate outputs against site standards before engineering use.</p><div class="cards tools"><article><h3>Break-even Cut-off Grade</h3><label>Metal price ($/unit)<input id="price" type="number" value="9500"></label><label>Recovery (%)<input id="recovery" type="number" value="90"></label><label>Payable (%)<input id="payable" type="number" value="95"></label><label>Relevant cost ($/t ore)<input id="cost" type="number" value="45"></label><label>Units per grade unit<input id="units" type="number" value="10000"></label><button id="cutoff">Calculate cut-off</button><output id="cutoffResult">Enter assumptions and calculate.</output><small>Simplified single-commodity break-even formula; not a multi-element NSR or strategic cut-off optimiser.</small></article><article><h3>Weighted Mining-Method Screening</h3><p>Enter five criterion weights and scores for two candidate methods.</p><label>Geometry weight (%)<input class="weight" value="25" type="number"></label><label>Rock-mass weight (%)<input class="weight" value="30" type="number"></label><label>Production weight (%)<input class="weight" value="20" type="number"></label><label>Cost weight (%)<input class="weight" value="15" type="number"></label><label>Selectivity weight (%)<input class="weight" value="10" type="number"></label><label>Candidate A scores (geometry, rock, rate, cost, selectivity)<input id="aScores" value="4,3,4,3,3"></label><label>Candidate B scores (same order)<input id="bScores" value="3,4,3,4,4"></label><button id="method">Compare candidates</button><output id="methodResult">Weights should total 100%; scores use a 1–5 scale.</output><small>Screening aid only; not a substitute for geotechnical, economic, ventilation, dilution, recovery and regulatory studies.</small></article></div></div></section>
+<section id="endeavor" class="section"><div class="wrap columns"><div><p class="eyebrow dark">PROPOSED PROFESSIONAL ENDEAVOR</p><h2>Advancing data-driven, safer and more efficient mining.</h2></div><div><p>My proposed professional direction is to advance digitalisation, machine learning, geomechanical analysis and remote monitoring in mining engineering, with an emphasis on mine safety, operational efficiency and responsible development of critical mineral resources in the United States.</p><p>This describes a proposed professional direction, not a legal filing, endorsement or claim of immigration petition approval.</p></div></div></section>
+<section id="contact" class="section dark"><div class="wrap columns"><div><p class="eyebrow">CONNECT</p><h2>Let's exchange<br><em>ideas and insight.</em></h2><p>For appropriate academic discussions, research collaboration and professional connections.</p></div><div class="panel"><p>EMAIL</p><a class="email" href="mailto:naphtalidube184@gmail.com">naphtalidube184@gmail.com</a><hr><a href="https://linkedin.com/in/naphtalidube-0b8656233" target="_blank" rel="noopener">LinkedIn profile ↗</a></div></div></section></main><footer><div class="wrap">NAPHTALI T. DUBE <span>Mining Engineering · Research · Technology · © <span id="year"></span></span></div></footer><script src="script.js"></script></body></html>
