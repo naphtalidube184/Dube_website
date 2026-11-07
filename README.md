@@ -1,6 +1,19 @@
-# Naphtali T. Dube – website
+# Naphtali T. Dube — professional research website
 
-- Edit content at https://app.pagescms.org (sign in with GitHub).
-- Content lives in `data/*.json`. Uploaded files (resume, PDFs, images) go in `media/`.
-- Each web tool is its own folder in `tools/` with an `index.html`. To list a new tool on the home page, add it under "Tools and web systems" in Pages CMS with a link like `/tools/your-tool/`.
-- Hosted on Netlify. No build step: publish directory is the repository root.
+Responsive static website. Contact details:
+- Email: naphtalidube184@gmail.com
+- LinkedIn: https://linkedin.com/in/naphtalidube-0b8656233
+
+## Included tools
+- Simplified single-commodity break-even cut-off grade calculator.
+- Weighted mining-method screening calculator using five user-defined criteria.
+
+These are preliminary educational/screening tools, not validated operational engineering software. Validate inputs, assumptions, units and results independently.
+
+## Publishing
+GitHub Pages can host this static site from the main branch and repository root. A custom domain such as naphtalidube.com requires separate domain registration and DNS configuration.
+
+## Adding projects
+Add approved public project descriptions and supporting files in the repository, then update index.html to link to them. Never upload employer-confidential data, mine plans, radar records, proprietary drawings or restricted operational information without written authorisation.
+
+This website describes professional interests and proposed research directions. It does not claim immigration petition approval.
