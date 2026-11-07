@@ -1,0 +1,6 @@
+[
+  {"title":"Radar back-analysis tool for slope alarms","summary":"An Excel workbook that averages radar velocity data over windows from 30 minutes to 12 hours, then counts false alarms and warning time for each threshold. Results show as a heat map so the best alarm settings are easy to pick.","tags":"Slope monitoring, Excel automation","image":"","link":""},
+  {"title":"SG 10116 chrome project, Lalapanzi, Zimbabwe","summary":"Tailings storage facility and slime dam design for a chrome operation, with A3 drawings of the dam, plant process flow and 3D plant layout.","tags":"Tailings design, CAD","image":"","link":""},
+  {"title":"West Shore Gold financial model","summary":"A full Excel valuation of a 25-year heap leach gold operation: production schedule, operating and capital costs, tax, cash flow, NPV and sensitivity.","tags":"Mine valuation, DCF","image":"","link":""},
+  {"title":"Radar coverage planning tool","summary":"A tool for planning where slope radars should sit so the active pit walls stay covered as mining moves.","tags":"Slope monitoring, planning","image":"","link":""}
+]

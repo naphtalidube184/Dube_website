@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Stripping ratio check – N. T. Dube</title>
+<meta name="description" content="Compare a planned stripping ratio with the breakeven stripping ratio.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/common.js"></script>
+</head>
+<body>
+<nav class="nav" aria-label="Main"><div class="nav-in">
+  <a class="nav-name" href="/">N. T. Dube</a>
+  <div class="nav-links"><a href="/#about">About</a><a href="/#publications">Publications</a><a href="/#projects">Projects</a><a href="/#tools">All tools</a><a href="/#contact">Contact</a></div>
+</div></nav>
+<main class="wrap">
+<a class="back" href="/#tools">Back to all tools</a>
+<h1 class="page">Stripping ratio check</h1>
+<p class="prose muted">Compares the planned stripping ratio with the most waste one tonne of ore can pay to remove. If the planned ratio is higher, that part of the pit loses money.</p>
+<div class="tool">
+  <div class="grid-in">
+    <label>Ore tonnes (Mt)<input id="s-ore" type="number" inputmode="decimal" step="any" value="40"></label>
+    <label>Waste tonnes (Mt)<input id="s-waste" type="number" inputmode="decimal" step="any" value="120"></label>
+    <label>Recoverable value per tonne ore ($/t)<input id="s-val" type="number" inputmode="decimal" step="any" value="32"></label>
+    <label>Ore mining cost ($/t)<input id="s-om" type="number" inputmode="decimal" step="any" value="2.5"></label>
+    <label>Processing and G&amp;A ($/t ore)<input id="s-proc" type="number" inputmode="decimal" step="any" value="9.5"></label>
+    <label>Waste mining cost ($/t)<input id="s-wm" type="number" inputmode="decimal" step="any" value="2.2"></label>
+  </div>
+  <div class="results" aria-live="polite">
+    <div class="res main"><div class="v" id="s-sr">–</div><div class="k">Planned stripping ratio (waste : ore)</div></div>
+    <div class="res"><div class="v" id="s-be">–</div><div class="k">Breakeven stripping ratio</div></div>
+    <div class="res"><div class="v" id="s-profit">–</div><div class="k" id="s-profit-k">Profit per tonne ore</div></div>
+    <div class="res"><div class="v" id="s-total">–</div><div class="k">Total undiscounted profit</div></div>
+  </div>
+  <p class="formula">Breakeven stripping ratio = (value per tonne ore − ore mining − processing and G&amp;A) ÷ waste mining cost.</p>
+</div>
+<p class="small">Results are for early screening only and aren’t a substitute for detailed design or a full mine plan.</p>
+</main>
+<footer class="wrap" style="padding-top:24px"></footer>
+<script>
+(function(){
+  const $ = id => document.getElementById(id); const sk = ["ore","waste","val","om","proc","wm"];
+  function calc(){
+    const v = {}; sk.forEach(k => v[k] = parseFloat($("s-"+k).value)); const ids = ["s-sr","s-be","s-profit","s-total"];
+    if(!sk.every(k => isFinite(v[k])) || v.ore <= 0 || v.wm <= 0){ ids.forEach(id => $(id).textContent = "–"); return; }
+    const sr = v.waste/v.ore, be = (v.val - v.om - v.proc)/v.wm, profit = v.val - v.om - v.proc - sr*v.wm;
+    $("s-sr").textContent = fmt(sr,2)+" : 1";
+    $("s-be").textContent = be > 0 ? fmt(be,2)+" : 1" : "Ore doesn’t pay";
+    $("s-profit").textContent = money(profit,2);
+    $("s-profit-k").textContent = profit >= 0 ? "Profit per tonne ore" : "Loss per tonne ore";
+    $("s-total").textContent = money(profit*v.ore,0,"M");
+  }
+  sk.forEach(k => $("s-"+k).addEventListener("input", calc)); calc();
+})();
+</script>
+</body>
+</html>

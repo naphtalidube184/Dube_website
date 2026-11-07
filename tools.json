@@ -1,0 +1,6 @@
+[
+  {"name":"Cutoff grade calculator","summary":"Breakeven and marginal cutoff grades for copper, gold and platinum, with a metal price sensitivity.","link":"/tools/cutoff-grade/","tags":"Mine planning, economics"},
+  {"name":"Project NPV and IRR","summary":"Quick discounted cash flow for a mine project: NPV, IRR, discounted payback and a cash flow chart.","link":"/tools/npv/","tags":"Valuation"},
+  {"name":"Stripping ratio check","summary":"Compares the planned waste-to-ore ratio with the breakeven ratio the ore can pay for.","link":"/tools/stripping-ratio/","tags":"Pit design, economics"},
+  {"name":"Planar sliding factor of safety","summary":"Hoek and Bray check of a bench sliding on a single joint plane, with cohesion, friction and water.","link":"/tools/planar-sliding/","tags":"Geomechanics"}
+]

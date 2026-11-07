@@ -1,0 +1,7 @@
+[
+  {"area":"Geomechanics","items":"FLAC3D, Rocscience, slope radar and prism monitoring, TARPs"},
+  {"area":"Mine planning","items":"Deswik, Vulcan, Datamine, Surpac, Maptek PointStudio"},
+  {"area":"Economics","items":"Pit optimization, reserve estimates, DCF and NPV, sensitivity analysis"},
+  {"area":"Data and AI","items":"Python, C++, Power BI, Random Forest, XGBoost, ANN, PINNs"},
+  {"area":"GIS","items":"ArcGIS, QGIS"}
+]

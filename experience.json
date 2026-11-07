@@ -1,0 +1,6 @@
+[
+  {"role":"Mining Engineer 1","org":"Freeport-McMoRan, Safford Operations, Arizona","dates":"Sep 2026 – present","points":["Monitor pit slopes with radar and prisms, and act on alarms through the TARP.","Check built pit walls against design using lidar scans in Maptek PointStudio.","Update the pit surface model from survey points and scans.","Build a radar coverage planning tool; run field and stockpile inspections and write daily reports."]},
+  {"role":"Geomechanical Engineering Intern","org":"Freeport-McMoRan, Tucson, Arizona","dates":"Jul 2026 – Sep 2026","points":["Built an Excel tool that back-analyzes radar slope data to test alarm thresholds and averaging windows."]},
+  {"role":"Graduate Teaching Assistant","org":"Missouri S&T, Capstone Design and Technical Reporting","dates":"Jan 2026 – May 2026","points":[]},
+  {"role":"Mining Engineer","org":"Bravura Zimbabwe, underground platinum project, Great Dyke","dates":"Jan 2023 – Dec 2024","points":["Worked on prospecting, feasibility studies and the environmental impact assessment.","Did pit design, pit optimization and trade-off studies comparing underground and open-pit mining.","Built cash flow, NPV and sensitivity models; did ore control and targeting."]}
+]
